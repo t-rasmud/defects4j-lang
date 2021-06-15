@@ -534,6 +534,7 @@ public class MethodUtils {
      * @param interfacesBehavior whether to search interfaces
      * @return Collection<Method> in ascending order from sub- to superclass
      */
+    @SuppressWarnings("iteration:method.invocation")    // Iterator has next : Iterator (hierarchy) guaranteed to have atleast one element
     public static Set<Method> getOverrideHierarchy(final Method method, Interfaces interfacesBehavior) {
         Validate.notNull(method);
         final Set<Method> result = new LinkedHashSet<Method>();
