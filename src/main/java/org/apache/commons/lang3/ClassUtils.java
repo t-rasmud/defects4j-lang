@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.mutable.MutableObject;
+import org.checkerframework.checker.nonempty.qual.NonEmpty;
 
 /**
  * <p>Operates on classes without using reflection.</p>
@@ -1154,9 +1155,10 @@ public class ClassUtils {
      * @param interfacesBehavior
      * @return Iterable
      */
-    public static Iterable<Class<?>> hierarchy(final Class<?> type, Interfaces interfacesBehavior) {
+    @SuppressWarnings("nonempty:return")
+    public static @NonEmpty Iterable<Class<?>> hierarchy(final Class<?> type, Interfaces interfacesBehavior) {
         final Iterable<Class<?>> classes = new Iterable<Class<?>>() {
-    
+
             @Override
             public Iterator<Class<?>> iterator() {
                 final MutableObject<Class<?>> next = new MutableObject<Class<?>>(type);

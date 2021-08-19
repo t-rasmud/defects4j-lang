@@ -31,7 +31,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.ClassUtils.Interfaces;
-
+import org.checkerframework.checker.iteration.qual.HasNext;
 /**
  * <p>Utility reflection methods focused on methods, originally from Commons BeanUtils.
  * Differences from the BeanUtils version may be noted, especially where similar functionality
@@ -534,7 +534,6 @@ public class MethodUtils {
      * @param interfacesBehavior whether to search interfaces
      * @return Collection<Method> in ascending order from sub- to superclass
      */
-    @SuppressWarnings("iteration:method.invocation")    // Iterator has next : Iterator (hierarchy) guaranteed to have atleast one element
     public static Set<Method> getOverrideHierarchy(final Method method, Interfaces interfacesBehavior) {
         Validate.notNull(method);
         final Set<Method> result = new LinkedHashSet<Method>();
