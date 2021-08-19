@@ -1204,7 +1204,7 @@ public class ClassUtils {
                     }
     
                     @Override
-                    @SuppressWarnings("iteration:method.invocation")    // Iterator has next : Iterator (wrapped) guaranteed to have atleast one element
+                    @SuppressWarnings("iteration:method.invocation")    // next implementation: call to next in Iterator implementation
                     public Class<?> next() {
                         if (interfaces.hasNext()) {
                             final Class<?> nextInterface = interfaces.next();
